@@ -1,0 +1,13 @@
+{
+  "name": "hotballoon-test-dummies",
+  "version": "1.0.0",
+  "description": "Hotballoon test device",
+  "main": "index.js",
+  "repository": "git@github.com:flexiooss/hotballoon-test-dummies.git",
+  "author": "Thomas Chatelain (https://github.com/TomAchT)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "flexio-jshelpers": "https://github.com/flexiooss/flexio-jshelpers.git",
+    "hotballoon": "https://github.com/flexiooss/hotballoon.git"
+  }
+}
