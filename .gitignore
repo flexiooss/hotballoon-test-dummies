@@ -1,5 +1,10 @@
+dist/
+libs/
 node_modules/
 *.log
 *.lock
 .vscode/
 .idea/
+*.iml
+generated/
+package-lock.json
