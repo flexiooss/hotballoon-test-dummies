@@ -1,5 +1,5 @@
 {
-  "name": "hotballoon-test-dummies",
+  "name": "@flexio-oss/hotballoon-test-dummies",
   "version": "1.0.0-dev",
   "description": "Hotballoon test device",
   "main": "index.js",
