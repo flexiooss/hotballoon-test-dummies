@@ -1,1 +1,1 @@
-export {HotballoonTestDummy} from './src/HotballoonTestDummy'
+export {HotballoonTestDummy} from './src/js/HotballoonTestDummy'
