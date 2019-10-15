@@ -1,6 +1,7 @@
-import {HotBalloonTestApplication} from './HotBalloonTestApplication'
-import {TestAppDispatcher} from './TestAppDispatcher'
+import {HotBalloonTestApplication} from './application/HotBalloonTestApplication'
+import {TestAppDispatcher} from './dispatcher/TestAppDispatcher'
 import {FakeLogger} from '@flexio-oss/js-logger'
+import '@flexio-oss/stylist'
 
 export class HotballoonTestDummy {
   /**

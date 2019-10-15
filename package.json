@@ -12,6 +12,13 @@
   "dependencies": {
     "@flexio-corp/hotballoon-app-parent": "0.0.0-dev"
   },
+  "peerDependencies": {
+    "@flexio-oss/global-import-registry": ">0.0.0",
+    "@flexio-oss/stylist": ">0.0.0",
+    "@flexio-oss/hotballoon": ">O.O.O",
+    "@flexio-corp/theme-app-flexio": ">O.O.O",
+    "@flexio-oss/js-style-theme-interface": ">O.O.O"
+  },
   "hotballoon-shed": {
     "build": {
       "builder": "webpack4"
