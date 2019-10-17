@@ -1,12 +1,22 @@
 import {HotBalloonTestApplication} from './application/HotBalloonTestApplication'
 import {TestAppDispatcher} from './dispatcher/TestAppDispatcher'
 import {AppStyles} from './styles/AppStyles'
-import {FakeLogger} from '@flexio-oss/js-logger'
+import {FakeLogger, ConsoleLogger} from '@flexio-oss/js-logger'
 import '@flexio-oss/stylist'
 
 export class ApplicationWithStyle {
-  constructor() {
-    this.__logger = new FakeLogger().debug()
+  /**
+   *
+   * @param {LoggerInterface} logger
+   * @private
+   */
+  constructor(logger) {
+    /**
+     *
+     * @type {LoggerInterface}
+     * @private
+     */
+    this.__logger = logger
 
     /**
      *
@@ -25,6 +35,22 @@ export class ApplicationWithStyle {
      * @private
      */
     this.__stylesConfig = AppStyles.build(this.__logger)
+  }
+
+  /**
+   *
+   * @return {ApplicationWithStyle}
+   */
+  static withConsoleLogger() {
+    return new ApplicationWithStyle(new ConsoleLogger().debug())
+  }
+
+  /**
+   *
+   * @return {ApplicationWithStyle}
+   */
+  static withoutLogger() {
+    return new ApplicationWithStyle(new FakeLogger().debug())
   }
 
   /**
