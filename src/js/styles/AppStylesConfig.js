@@ -3,8 +3,9 @@ export class AppStylesConfig {
    *
    * @param {Form} form
    * @param {Color} color
+   * @param {Button} button
    */
-  constructor(form, color) {
+  constructor(form, color, button) {
     /**
      *
      * @type {Form}
@@ -17,6 +18,13 @@ export class AppStylesConfig {
      * @private
      */
     this.__color = color
+
+    /**
+     *
+     * @type {Button}
+     * @private
+     */
+    this.__button = button
   }
 
   /**
@@ -33,5 +41,13 @@ export class AppStylesConfig {
    */
   color() {
     return this.__color
+  }
+
+  /**
+   *
+   * @return {Button}
+   */
+  button() {
+    return this.__button
   }
 }
