@@ -1,4 +1,4 @@
-import {HotBalloonTestApplication} from './application/HotBalloonTestApplication'
+import {ApplicationBuilder} from '@flexio-oss/hotballoon'
 import {TestAppDispatcher} from './dispatcher/TestAppDispatcher'
 import {AppStyles} from './styles/AppStyles'
 import {FakeLogger, ConsoleLogger} from '@flexio-oss/js-logger'
@@ -20,14 +20,15 @@ export class ApplicationWithStyle {
 
     /**
      *
-     * @type {HotBalloonTestApplication}
+     * @type {HotBalloonApplication}
      * @private
      */
-    this.__application = new HotBalloonTestApplication(
-      'Hotballoon-Test-Dummy-ApplicationWithStyle',
-      new TestAppDispatcher(this.__logger),
-      this.__logger
-    )
+    this.__application = new ApplicationBuilder()
+      .id('Hotballoon-Test-Dummy-ApplicationWithStyle')
+      .dispatcher(new TestAppDispatcher(this.__logger))
+      .logger(this.__logger)
+      .document(document)
+      .build()
 
     /**
      *
