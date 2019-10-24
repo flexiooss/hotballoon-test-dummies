@@ -1,8 +1,9 @@
+import '@flexio-oss/stylist'
+import '@flexio-oss/flex-types'
 import {ApplicationBuilder} from '@flexio-oss/hotballoon'
 import {TestAppDispatcher} from './dispatcher/TestAppDispatcher'
 import {AppStyles} from './styles/AppStyles'
 import {FakeLogger, ConsoleLogger} from '@flexio-oss/js-logger'
-import '@flexio-oss/stylist'
 
 export class ApplicationWithStyle {
   /**
