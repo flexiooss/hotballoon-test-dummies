@@ -1,5 +1,4 @@
 import {globalFlexioImport} from '@flexio-oss/global-import-registry'
-import {AppStylesConfig} from './AppStylesConfig'
 import {styleSheetMediaAll, styleSheetMediaPrint} from '@flexio-oss/js-style-theme-interface'
 import {themeAppFlexio} from '@flexio-corp/theme-app-flexio'
 
