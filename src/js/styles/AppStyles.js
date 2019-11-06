@@ -1,7 +1,7 @@
 import {globalFlexioImport} from '@flexio-oss/global-import-registry'
 import {AppStylesConfig} from './AppStylesConfig'
 import {styleSheetMediaAll, styleSheetMediaPrint} from '@flexio-oss/js-style-theme-interface'
-import {Form, Color, Button} from '@flexio-corp/theme-app-flexio'
+import {themeAppFlexio} from '@flexio-corp/theme-app-flexio'
 
 export class AppStyles {
   /**
@@ -24,16 +24,15 @@ export class AppStyles {
   /**
    *
    * @param {LoggerInterface} logger
-   * @return {AppStylesConfig}
+   * @return {Theme}
    */
   static build(logger) {
 
+
     const appStyles = new AppStyles(logger)
 
-    return new AppStylesConfig(
-      appStyles.__styleHandler.register(new Form()),
-      appStyles.__styleHandler.register(new Color()),
-      appStyles.__styleHandler.register(new Button())
-    )
+    themeAppFlexio.register(appStyles.__styleHandler)
+
+    return themeAppFlexio
   }
 }

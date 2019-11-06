@@ -33,10 +33,10 @@ export class ApplicationWithStyle {
 
     /**
      *
-     * @type {AppStylesConfig}
+     * @type {Theme}
      * @private
      */
-    this.__stylesConfig = AppStyles.build(this.__logger)
+    this.__styles = AppStyles.build(this.__logger)
   }
 
   /**
@@ -57,7 +57,7 @@ export class ApplicationWithStyle {
 
   /**
    *
-   * @return {HotBalloonTestApplication}
+   * @return {HotBalloonApplication}
    */
   application() {
     return this.__application
@@ -65,10 +65,10 @@ export class ApplicationWithStyle {
 
   /**
    *
-   * @return {AppStylesConfig}
+   * @return {Theme}
    */
-  stylesConfig() {
-    return this.__stylesConfig
+  styles() {
+    return this.__styles
   }
 
 }
