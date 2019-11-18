@@ -37,26 +37,44 @@ export class ApplicationRouter {
       .build()
   }
 
+  /**
+   * @returns {LoggerInterface}
+   */
   get logger() {
     return this.__logger
   }
 
+  /**
+   * @returns {HotBalloonApplication}
+   */
   get app() {
     return this.__APP
   }
 
+  /**
+   * @returns {StandAloneHistoryClient}
+   */
   get history() {
     return this.__history
   }
 
+  /**
+   * @returns {Router}
+   */
   get router() {
     return this.__router
   }
 
+  /**
+   * @returns {UrlExchanger}
+   */
   get urlExchanger() {
     return this.__urlExchanger
   }
 
+  /**
+   * @returns {ComponentRouterPublic}
+   */
   get componentRouter() {
     return this.__componentRouter
   }
