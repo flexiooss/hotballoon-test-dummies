@@ -33,7 +33,7 @@ export class ApplicationWithStyle {
 
     /**
      *
-     * @type {Theme}
+     * @type {ThemeStyle}
      * @private
      */
     this.__styles = AppStyles.build(this.__logger)
@@ -65,7 +65,7 @@ export class ApplicationWithStyle {
 
   /**
    *
-   * @return {Theme}
+   * @return {ThemeStyle}
    */
   styles() {
     return this.__styles

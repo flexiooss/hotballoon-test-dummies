@@ -23,7 +23,7 @@ export class AppStyles {
   /**
    *
    * @param {LoggerInterface} logger
-   * @return {Theme}
+   * @return {ThemeStyle}
    */
   static build(logger) {
 
