@@ -10,9 +10,7 @@ export class Test extends TestCase {
     this.logger = new FakeLogger()
   }
 
-  testAppRouter() {
-    new ApplicationRouter(this.logger)
-  }
+
 }
 
 runTest(Test)
