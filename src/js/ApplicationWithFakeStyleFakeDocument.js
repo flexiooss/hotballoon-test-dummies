@@ -2,11 +2,11 @@ import '@flexio-oss/stylist'
 import '@flexio-oss/flex-types'
 import {ApplicationBuilder} from '@flexio-oss/hotballoon'
 import {TestAppDispatcher} from './dispatcher/TestAppDispatcher'
-import {AppStyles} from './styles/AppStyles'
 import {FakeLogger, ConsoleLogger} from '@flexio-oss/js-logger'
 import {FakeDocument} from './FakeDocument'
+import {themeAppFlexio} from '@flexio-corp/theme-app-flexio'
 
-export class ApplicationWithStyleFakeDocument {
+export class ApplicationWithFakeStyleFakeDocument {
   /**
    *
    * @param {LoggerInterface} logger
@@ -37,23 +37,23 @@ export class ApplicationWithStyleFakeDocument {
      * @type {ThemeStyle}
      * @private
      */
-    this.__styles = AppStyles.build(this.__logger)
+    this.__styles = themeAppFlexio
   }
 
   /**
    *
-   * @return {ApplicationWithStyleFakeDocument}
+   * @return {ApplicationWithFakeStyleFakeDocument}
    */
   static withConsoleLogger() {
-    return new ApplicationWithStyleFakeDocument(new ConsoleLogger().debug())
+    return new ApplicationWithFakeStyleFakeDocument(new ConsoleLogger().debug())
   }
 
   /**
    *
-   * @return {ApplicationWithStyleFakeDocument}
+   * @return {ApplicationWithFakeStyleFakeDocument}
    */
   static withoutLogger() {
-    return new ApplicationWithStyleFakeDocument(new FakeLogger().debug())
+    return new ApplicationWithFakeStyleFakeDocument(new FakeLogger().debug())
   }
 
   /**
