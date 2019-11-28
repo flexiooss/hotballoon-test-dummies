@@ -27,7 +27,7 @@ export class ApplicationRouter {
         .build()
     )
 
-    this.__urlExchanger = new UrlExchanger(this.__history, this.__router, this.__APP.dispatcher(), this.app.addComponentContext())
+    this.__urlExchanger = new UrlExchanger(this.__history, this.__router, this.__APP.dispatcher(), this.__APP.addComponentContext())
 
     this.__componentRouter = new ComponentRouterBuilder()
       .componentContext(this.__APP.addComponentContext())

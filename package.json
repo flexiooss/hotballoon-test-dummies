@@ -21,7 +21,8 @@
     "@flexio-oss/stylist": ">0.0.0",
     "@flexio-oss/hotballoon": ">O.O.O",
     "@flexio-corp/theme-app-flexio": ">O.O.O",
-    "@flexio-oss/js-style-theme-interface": ">O.O.O"
+    "@flexio-oss/js-style-theme-interface": ">O.O.O",
+    "@flexio-oss/js-logger": ">0.0.0"
   },
   "hotballoon-shed": {
     "build": {
