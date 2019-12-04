@@ -9,7 +9,7 @@ export class ApplicationRouter {
   /**
    * @param {LoggerInterface} logger
    */
-  constructor(logger){
+  constructor(logger) {
     this.__logger = logger
 
     this.__APP = new ApplicationBuilder()
@@ -40,42 +40,42 @@ export class ApplicationRouter {
   /**
    * @returns {LoggerInterface}
    */
-  get logger() {
+  logger() {
     return this.__logger
   }
 
   /**
    * @returns {HotBalloonApplication}
    */
-  get app() {
+  app() {
     return this.__APP
   }
 
   /**
    * @returns {StandAloneHistoryClient}
    */
-  get history() {
+  history() {
     return this.__history
   }
 
   /**
    * @returns {Router}
    */
-  get router() {
+  router() {
     return this.__router
   }
 
   /**
    * @returns {UrlExchanger}
    */
-  get urlExchanger() {
+  urlExchanger() {
     return this.__urlExchanger
   }
 
   /**
    * @returns {ComponentRouterPublic}
    */
-  get componentRouter() {
+  componentRouter() {
     return this.__componentRouter
   }
 }
