@@ -3,7 +3,7 @@ import {Dispatcher} from '@flexio-oss/hotballoon'
 import {StandAloneHistoryClient} from '@flexio-oss/js-history-client'
 import {RouterBuilder} from '@flexio-oss/js-router/src/js/RouterBuilder'
 import {UrlExchanger} from '@flexio-oss/js-url-exchanger'
-import {ComponentRouterBuilder} from '@flexio-corp/component-router/src/js/ComponentRouterBuilder'
+import {ComponentRouterBuilder} from '@flexio-corp/component-router'
 
 export class ApplicationRouter {
   /**
