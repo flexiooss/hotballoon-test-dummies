@@ -14,7 +14,7 @@
     "@flexio-oss/js-history-client": "1.0.0-dev",
     "@flexio-oss/js-router": "1.0.0-dev",
     "@flexio-corp/component-router": "1.0.0-dev",
-    "@flexio-oss/js-url-exchanger": "^1.0.0-dev"
+    "@flexio-oss/js-url-exchanger": "1.0.0-dev"
   },
   "peerDependencies": {
     "@flexio-oss/global-import-registry": ">0.0.0",
