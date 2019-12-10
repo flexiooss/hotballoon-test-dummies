@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@flexio-corp/hotballoon-app-parent": "0.1.0-dev",
-    "@flexio-oss/js-history-client": "^1.0.0-dev",
-    "@flexio-oss/js-router": "^1.0.0-dev",
+    "@flexio-oss/js-history-client": "1.0.0-dev",
+    "@flexio-oss/js-router": "1.0.0-dev",
     "@flexio-corp/component-router": "1.0.0-dev",
     "@flexio-oss/js-url-exchanger": "^1.0.0-dev"
   },
