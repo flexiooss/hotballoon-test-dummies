@@ -6,6 +6,7 @@ import {AppStyles} from './styles/AppStyles'
 import {FakeLogger, ConsoleLogger} from '@flexio-oss/js-logger'
 import {ComponentAtmosphereLayersBuilder} from '@flexio-oss/atmosphere-layers'
 
+
 export class ApplicationWithStyleAndLayers {
   /**
    *
@@ -44,11 +45,13 @@ export class ApplicationWithStyleAndLayers {
      * @type {ComponentAtmosphereLayersPublicHandler}
      * @private
      */
-    this.__layersComponent = ComponentAtmosphereLayersBuilder.build(
-      this.__application,
-      this.__styles.layers(),
-      layersParentNode
-    )
+    this.__layersComponent = new ComponentAtmosphereLayersBuilder()
+      .hotballoonApplication(this.__application)
+      .layersStyle(this.__styles.layers())
+      .parentNode(layersParentNode)
+      .document(document)
+      .build()
+
   }
 
   /**
