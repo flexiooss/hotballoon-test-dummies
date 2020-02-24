@@ -6,3 +6,4 @@ export {ApplicationWithFakeStyleFakeDocument} from './src/js/ApplicationWithFake
 export {ApplicationRouter} from './src/js/ApplicationRouter'
 export {FakeNodeElement} from './src/js/FakeNodeElement'
 export {FakeDocument} from './src/js/FakeDocument'
+export {Blob} from './src/js/requester/Blob'
