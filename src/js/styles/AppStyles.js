@@ -1,5 +1,10 @@
 import {globalFlexioImport} from '@flexio-oss/global-import-registry'
-import {styleSheetMediaAll, styleSheetMediaPrint} from '@flexio-oss/js-style-theme-interface'
+import {
+  styleSheetMediaAll,
+  styleSheetMediaDesktop,
+  styleSheetMediaPrint,
+  styleSheetMediaTablet
+} from '@flexio-oss/js-style-theme-interface'
 import {themeAppFlexio} from '@flexio-corp/theme-app-flexio'
 
 export class AppStyles {
@@ -14,6 +19,8 @@ export class AppStyles {
       new globalFlexioImport.io.flexio.stylist.types.StyleSheetMediaArrayBuilder()
         .pushValue(styleSheetMediaAll)
         .pushValue(styleSheetMediaPrint)
+        .pushValue(styleSheetMediaTablet)
+        .pushValue(styleSheetMediaDesktop)
         .build(),
       false
     )
@@ -26,7 +33,6 @@ export class AppStyles {
    * @return {ThemeStyle}
    */
   static build(logger) {
-
 
     const appStyles = new AppStyles(logger)
 
