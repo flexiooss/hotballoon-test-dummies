@@ -1,3 +1,5 @@
+import {globalScope} from '@flexio-oss/global-import-registry'
+
 export class Blob {
 
   constructor(content, options) {
@@ -23,4 +25,9 @@ export class FileReader {
     this.result = blob.content()
     this.onloadend()
   }
+}
+
+export const setTestBlobToGlobal = ()=>{
+   globalScope.Blob = Blob
+   globalScope.FileReader = FileReader
 }
