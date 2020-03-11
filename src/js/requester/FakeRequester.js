@@ -1,3 +1,9 @@
+import {setTestBlobToGlobal} from './Blob'
+
+
+setTestBlobToGlobal()
+
+
 class RequestSendBuilder {
 
   constructor() {
@@ -222,11 +228,16 @@ class FakeHttpRequester {
       .parameters(this.__parameters)
       .path(this.__path)
       .build()
-      .setTimeout(() => {
-          callback(new FakeResponseDelegate(this.__expectedResponseCode, this.__expectedResponseBody, this.__expectedResponseHeaders))
-        },
-        this.__wait
-      )
+
+    setTimeout(() => {
+        callback(new FakeResponseDelegate(
+          this.__expectedResponseCode,
+          new Blob(this.__expectedResponseBody),
+          this.__expectedResponseHeaders)
+        )
+      },
+      this.__wait
+    )
   }
 
   delete(callback) {
@@ -239,7 +250,11 @@ class FakeHttpRequester {
       .build()
 
     setTimeout(() => {
-        callback(new FakeResponseDelegate(this.__expectedResponseCode, this.__expectedResponseBody, this.__expectedResponseHeaders))
+        callback(new FakeResponseDelegate(
+          this.__expectedResponseCode,
+          new Blob(this.__expectedResponseBody),
+          this.__expectedResponseHeaders)
+        )
       },
       this.__wait
     )
@@ -254,9 +269,12 @@ class FakeHttpRequester {
       .path(this.__path)
       .build()
 
-    this.__lastMethod = 'head'
     setTimeout(() => {
-        callback(new FakeResponseDelegate(this.__expectedResponseCode, this.__expectedResponseBody, this.__expectedResponseHeaders))
+        callback(new FakeResponseDelegate(
+          this.__expectedResponseCode,
+          new Blob(this.__expectedResponseBody),
+          this.__expectedResponseHeaders)
+        )
       },
       this.__wait
     )
@@ -273,7 +291,11 @@ class FakeHttpRequester {
       .build()
 
     setTimeout(() => {
-        callback(new FakeResponseDelegate(this.__expectedResponseCode, this.__expectedResponseBody, this.__expectedResponseHeaders))
+        callback(new FakeResponseDelegate(
+          this.__expectedResponseCode,
+          new Blob(this.__expectedResponseBody),
+          this.__expectedResponseHeaders)
+        )
       },
       this.__wait
     )
@@ -290,7 +312,11 @@ class FakeHttpRequester {
       .build()
 
     setTimeout(() => {
-        callback(new FakeResponseDelegate(this.__expectedResponseCode, this.__expectedResponseBody, this.__expectedResponseHeaders))
+        callback(new FakeResponseDelegate(
+          this.__expectedResponseCode,
+          new Blob(this.__expectedResponseBody),
+          this.__expectedResponseHeaders)
+        )
       },
       this.__wait
     )
@@ -307,7 +333,11 @@ class FakeHttpRequester {
       .build()
 
     setTimeout(() => {
-        callback(new FakeResponseDelegate(this.__expectedResponseCode, this.__expectedResponseBody, this.__expectedResponseHeaders))
+        callback(new FakeResponseDelegate(
+          this.__expectedResponseCode,
+          new Blob(this.__expectedResponseBody),
+          this.__expectedResponseHeaders)
+        )
       },
       this.__wait
     )
@@ -343,10 +373,10 @@ class FakeHttpRequester {
 
 export class FakeHttpRequesterBuilder {
   constructor() {
-    this.__expectedResponseBody = null
-    this.__expectedResponseCode = null
+    this.__expectedResponseBody = '{}'
+    this.__expectedResponseCode = 200
     this.__expectedResponseHeaders = {}
-    this.__wait = null
+    this.__wait = 0
   }
 
   /**
@@ -398,11 +428,11 @@ export class FakeHttpRequesterBuilder {
 
   /**
    * @description wait ms
-   * @param {number} value
+   * @param {number} ms
    * @return {FakeHttpRequesterBuilder}
    */
-  wait(value) {
-    this.__wait = value
+  wait(ms) {
+    this.__wait = ms
     return this
   }
 

@@ -21,6 +21,10 @@ export class FileReader {
     this.result = null;
   }
 
+  onloadend(){
+    throw new Error('should be override')
+  }
+
   readAsText(blob) {
     this.result = blob.content()
     this.onloadend()
@@ -28,6 +32,6 @@ export class FileReader {
 }
 
 export const setTestBlobToGlobal = ()=>{
-   globalScope.Blob = Blob
-   globalScope.FileReader = FileReader
+  global['Blob'] = Blob
+  global['FileReader'] = FileReader
 }
