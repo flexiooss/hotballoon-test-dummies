@@ -396,7 +396,6 @@ export class FakeHttpRequesterBuilder {
    */
   expectedResponseCode(code) {
     TypeCheck.assertIsFunction(code)
-
     this.__expectedResponseCode = code
     return this
   }
@@ -407,7 +406,6 @@ export class FakeHttpRequesterBuilder {
    */
   expectedResponseHeaders(headers) {
     TypeCheck.assertIsFunction(headers)
-
     this.__expectedResponseHeaders = headers
     return this
   }
