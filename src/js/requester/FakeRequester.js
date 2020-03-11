@@ -179,19 +179,19 @@ class RequestSend {
 class FakeHttpRequester {
   /**
    *
-   * @param {?Object} expectedResponseHeaders
-   * @param {Number} expectedResponseCode
+   * @param {function(request:RequestSendBuilder):Object} expectedResponseHeaders
+   * @param {function(request:RequestSendBuilder):number} expectedResponseCode
    * @param {function(request:RequestSendBuilder):string} expectedResponseBody
    * @param {?Number} wait
    */
   constructor(expectedResponseHeaders, expectedResponseCode, expectedResponseBody, wait) {
     /**
-     * @type {Object}
+     * @type {function(request:RequestSendBuilder):Object}
      * @private
      */
     this.__expectedResponseHeaders = expectedResponseHeaders
     /**
-     * @type {Number}
+     * @type {function(request:RequestSendBuilder):number}
      * @private
      */
     this.__expectedResponseCode = expectedResponseCode
@@ -231,9 +231,9 @@ class FakeHttpRequester {
 
     setTimeout(() => {
         callback(new FakeResponseDelegate(
-          this.__expectedResponseCode,
+          this.__expectedResponseCode.call(this, this.__requestSend),
           new Blob(this.__expectedResponseBody.call(this, this.__requestSend)),
-          this.__expectedResponseHeaders)
+          this.__expectedResponseHeaders.call(this, this.__requestSend))
         )
       },
       this.__wait
@@ -251,9 +251,9 @@ class FakeHttpRequester {
 
     setTimeout(() => {
         callback(new FakeResponseDelegate(
-          this.__expectedResponseCode,
+          this.__expectedResponseCode.call(this, this.__requestSend),
           new Blob(this.__expectedResponseBody.call(this, this.__requestSend)),
-          this.__expectedResponseHeaders)
+          this.__expectedResponseHeaders.call(this, this.__requestSend))
         )
       },
       this.__wait
@@ -271,9 +271,9 @@ class FakeHttpRequester {
 
     setTimeout(() => {
         callback(new FakeResponseDelegate(
-          this.__expectedResponseCode,
+          this.__expectedResponseCode.call(this, this.__requestSend),
           new Blob(this.__expectedResponseBody.call(this, this.__requestSend)),
-          this.__expectedResponseHeaders)
+          this.__expectedResponseHeaders.call(this, this.__requestSend))
         )
       },
       this.__wait
@@ -292,9 +292,9 @@ class FakeHttpRequester {
 
     setTimeout(() => {
         callback(new FakeResponseDelegate(
-          this.__expectedResponseCode,
+          this.__expectedResponseCode.call(this, this.__requestSend),
           new Blob(this.__expectedResponseBody.call(this, this.__requestSend)),
-          this.__expectedResponseHeaders)
+          this.__expectedResponseHeaders.call(this, this.__requestSend))
         )
       },
       this.__wait
@@ -313,9 +313,9 @@ class FakeHttpRequester {
 
     setTimeout(() => {
         callback(new FakeResponseDelegate(
-          this.__expectedResponseCode,
+          this.__expectedResponseCode.call(this, this.__requestSend),
           new Blob(this.__expectedResponseBody.call(this, this.__requestSend)),
-          this.__expectedResponseHeaders)
+          this.__expectedResponseHeaders.call(this, this.__requestSend))
         )
       },
       this.__wait
@@ -334,9 +334,9 @@ class FakeHttpRequester {
 
     setTimeout(() => {
         callback(new FakeResponseDelegate(
-          this.__expectedResponseCode,
+          this.__expectedResponseCode.call(this, this.__requestSend),
           new Blob(this.__expectedResponseBody.call(this, this.__requestSend)),
-          this.__expectedResponseHeaders)
+          this.__expectedResponseHeaders.call(this, this.__requestSend))
         )
       },
       this.__wait
@@ -380,7 +380,7 @@ export class FakeHttpRequesterBuilder {
   }
 
   /**
-   * @description JSON string
+   * @description output JSON string
    * @param {function(request:RequestSendBuilder):string} body
    * @return {FakeHttpRequesterBuilder}
    */
@@ -391,39 +391,24 @@ export class FakeHttpRequesterBuilder {
   }
 
   /**
-   * @param {number} code
+   * @param {function(request:RequestSendBuilder):number} code
    * @return {FakeHttpRequesterBuilder}
    */
   expectedResponseCode(code) {
+    TypeCheck.assertIsFunction(code)
+
     this.__expectedResponseCode = code
     return this
   }
 
   /**
-   * @param {string} key
-   * @param {array} values
+   * @param {function(request:RequestSendBuilder):Object} headers
    * @return {FakeHttpRequesterBuilder}
    */
-  expectedResponseHeaders(key, values) {
-    this.__expectedResponseHeaders[key] = values
-    return this
-  }
+  expectedResponseHeaders(headers) {
+    TypeCheck.assertIsFunction(headers)
 
-  /**
-   * @param {string} key
-   * @param {string} value
-   * @return {FakeHttpRequesterBuilder}
-   */
-  expectedResponseHeader(key, value) {
-    this.__expectedResponseHeaders[key] = value
-    return this
-  }
-
-  /**
-   * @return {FakeHttpRequesterBuilder}
-   */
-  expectedResponseContentTypeJson() {
-    this.__expectedResponseHeaders['Content-Type'] = 'application/json'
+    this.__expectedResponseHeaders = headers
     return this
   }
 
