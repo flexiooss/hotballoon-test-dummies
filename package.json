@@ -10,11 +10,8 @@
     "code-altimeter-js": "https://github.com/flexiooss/code-altimeter-js.git"
   },
   "dependencies": {
-    "@flexio-corp/hotballoon-app-parent": "0.1.0-dev",
-    "@flexio-oss/js-history-client": "1.0.0-dev",
-    "@flexio-oss/js-router": "1.0.0-dev",
-    "@flexio-corp/component-router": "1.0.0-dev",
-    "@flexio-oss/js-url-exchanger": "1.0.0-dev"
+    "@flexio-corp/js-hotballoon-parent": "0.2.0",
+    "@flexio-corp/js-routing-parent": "1.0.0"
   },
   "peerDependencies": {
     "@flexio-oss/global-import-registry": ">0.0.0",
