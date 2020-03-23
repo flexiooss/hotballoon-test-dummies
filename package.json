@@ -12,7 +12,8 @@
   "dependencies": {
     "@flexio-corp/js-hotballoon-parent": "0.3.0-dev",
     "@flexio-corp/js-style-parent": "1.2.0-dev",
-    "@flexio-corp/js-routing-parent": "1.1.0-dev"
+    "@flexio-corp/js-routing-parent": "1.1.0-dev",
+    "@flexio-corp/component-commons-parent": "1.1.0-dev"
   },
   "peerDependencies": {
     "@flexio-oss/global-import-registry": ">0.0.0",
