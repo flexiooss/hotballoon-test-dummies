@@ -16,6 +16,7 @@ export class ApplicationRouter {
       .logger(logger)
       .dispatcher(new Dispatcher(logger))
       .id('TEST')
+      .document(document)
       .build()
 
     this.__history = new StandAloneHistoryClient()
