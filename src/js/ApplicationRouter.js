@@ -1,6 +1,6 @@
 import {ApplicationBuilder} from '@flexio-oss/hotballoon/src/js/Application/ApplicationBuilder'
 import {Dispatcher} from '@flexio-oss/hotballoon'
-import {StandAloneHistoryClient} from '@flexio-oss/js-history-client'
+import {BrowserHistory} from '@flexio-oss/js-history-client'
 import {RouterBuilder} from '@flexio-oss/js-router/src/js/RouterBuilder'
 import {UrlExchanger} from '@flexio-oss/js-url-exchanger'
 import {ComponentRouterBuilder} from '@flexio-corp/component-router'
@@ -19,12 +19,10 @@ export class ApplicationRouter {
       .document(document)
       .build()
 
-    this.__history = new StandAloneHistoryClient()
+    this.__history = new BrowserHistory()
     this.__router = RouterBuilder.build(
-      RouterBuilder.urlConfigurationBuilder()
-        .protocol('http')
-        .hostname('test')
-        .pathname('test')
+      RouterBuilder.urlConfigurationBuilderFromLocation(window.location)
+        .pathname('/')
         .build()
     )
 
